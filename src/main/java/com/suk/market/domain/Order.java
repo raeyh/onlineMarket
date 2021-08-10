@@ -12,16 +12,16 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="ProOrder")
+@Table(name = "ProOrder")
 public class Order {
     @Id
     @GeneratedValue
     private Long id;
-
+    @Enumerated(EnumType.ORDINAL)
     private OrderStatus status;
 
     @ManyToOne
-    @JoinColumn(name="buyer_id")
+    @JoinColumn(name = "buyer_id")
     private Buyer buyer;
 
     @ManyToOne
