@@ -21,6 +21,7 @@ public class Buyer extends User {
     @OneToMany(mappedBy = "buyer")
     @JsonIgnore
     private List<Order> orders;
+    private double amount;
     @OneToOne(cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
     @OneToMany(cascade = CascadeType.ALL)
@@ -28,4 +29,5 @@ public class Buyer extends User {
     private List<Seller> sellers;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Review> reviews;
+
 }

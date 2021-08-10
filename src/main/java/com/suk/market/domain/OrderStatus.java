@@ -1,5 +1,5 @@
 package com.suk.market.domain;
 
 public enum OrderStatus {
-    ORDERED, SHIPPED, DELIVERED;
+    ORDERED, SHIPPED, DELIVERED, CANCELLED;
 }

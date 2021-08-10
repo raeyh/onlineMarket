@@ -22,6 +22,7 @@ public class Review {
     private String description;
     @ManyToOne
     private Buyer buyer;
+    private boolean isApproved;
     @ManyToOne
     private Product product;
 }
