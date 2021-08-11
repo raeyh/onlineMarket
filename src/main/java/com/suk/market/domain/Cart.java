@@ -9,19 +9,19 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Cart {
     @Id
-    @GeneratedValue
-    private Long id;
-    private String name;
-    private String email;
-    private String username;
-    private String password;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Role> roles;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Buyer buyer;
+
+    @OneToMany(mappedBy = "cart")
+    private List<Product> products;
 }

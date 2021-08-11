@@ -11,18 +11,18 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @PutMapping("/orders/{id}/ship")
+    @PutMapping("/{id}/ship")
     public Order ship(@PathVariable Long id) {
         return orderService.ship(id);
     }
 
 
-    @PutMapping("/orders/{id}/deliver") // cancel Order
+    @PutMapping("/{id}/deliver")
     public Order deliver(@PathVariable long orderId) {
         return orderService.deliver(orderId);
     }
 
-    @PutMapping("/orders/{id}/cancel") // cancel Order
+    @PutMapping("/{id}/cancel")
     public Order cancel(@PathVariable long orderId) {
         return orderService.cancel(orderId);
     }

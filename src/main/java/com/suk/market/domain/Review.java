@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -19,10 +16,14 @@ public class Review {
     @Id
     @GeneratedValue
     private Long id;
-    private String description;
+    private String content;
     @ManyToOne
+    @JoinColumn(name = "buyer_id")
     private Buyer buyer;
     private boolean isApproved;
+
     @ManyToOne
     private Product product;
+
+
 }

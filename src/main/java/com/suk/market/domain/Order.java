@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -17,19 +18,27 @@ public class Order {
     @Id
     @GeneratedValue
     private Long id;
-    @Enumerated(EnumType.ORDINAL)
+    private Date issuedDate;
+
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
     @ManyToOne
     @JoinColumn(name = "buyer_id")
     private Buyer buyer;
 
+    @OneToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
+
     @ManyToOne
     private Product product;
 
     @ManyToOne
+    @JoinColumn(name = "ship_address_id")
     private Address shippingAddress;
 
     @ManyToOne
+    @JoinColumn(name = "bill_address_id")
     private Address billingAddress;
 }

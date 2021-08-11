@@ -15,19 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Buyer extends User {
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Address> addresses;
-    @OneToMany(mappedBy = "buyer")
-    @JsonIgnore
-    private List<Order> orders;
     private double amount;
-    @OneToOne(cascade = CascadeType.ALL)
-    private ShoppingCart shoppingCart;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Address> addresses;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable
     private List<Seller> sellers;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Review> reviews;
-
 }

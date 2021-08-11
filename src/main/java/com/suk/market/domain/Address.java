@@ -21,8 +21,10 @@ public class Address {
     private String state;
     private String city;
     private String zipcode;
-    @Enumerated(EnumType.ORDINAL)
+    public String street;
+    @Enumerated(EnumType.STRING)
     private AddressType addressType;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private Buyer buyer;
 }

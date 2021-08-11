@@ -14,6 +14,7 @@ public class BuyerController {
     @Autowired
     BuyerService buyerService;
 
+
     @GetMapping
     public List<Buyer> getAllBuyers() {
         return buyerService.getAll();
@@ -78,4 +79,6 @@ public class BuyerController {
     public Reciept orderReciept(@RequestBody OrderDTO orderDTO, @PathVariable long id) {
         return buyerService.orderReciept(orderDTO, id);
     }
+
+
 }

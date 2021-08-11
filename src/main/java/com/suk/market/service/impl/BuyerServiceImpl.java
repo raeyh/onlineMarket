@@ -42,9 +42,9 @@ public class BuyerServiceImpl implements BuyerService {
     @Override
     public Buyer addBuyer(Buyer buyer) {
         Buyer buyer1 = buyerRepository.save(buyer);
-        ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.setBuyer(buyer1);
-        shoppingCartRepository.save(shoppingCart);
+        Cart cart = new Cart();
+        cart.setBuyer(buyer1);
+        shoppingCartRepository.save(cart);
         return buyer1;
 
     }
@@ -88,24 +88,24 @@ public class BuyerServiceImpl implements BuyerService {
     @Override
     public List<Product> findOrCreateShoppingCart(long id) {
         Buyer buyer = findBuyerById(id);
-        ShoppingCart shoppingCart = shoppingCartRepository.findFirstByBuyer(buyer);
-        return shoppingCart.getProducts();
+        Cart cart = shoppingCartRepository.findFirstByBuyer(buyer);
+        return cart.getProducts();
     }
 
     @Override
     public List<Product> addProductsToCart(List<Product> products, long id) {
         Buyer buyer = findBuyerById(id);
-        ShoppingCart shoppingCart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
-        shoppingCart.setProducts(products);
-        return shoppingCartRepository.save(shoppingCart).getProducts();
+        Cart cart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
+        cart.setProducts(products);
+        return shoppingCartRepository.save(cart).getProducts();
     }
 
     @Override
     public List<Product> clearShoppingCart(long id) {
         Buyer buyer = findBuyerById(id);
-        ShoppingCart shoppingCart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
-        shoppingCart.setProducts(new ArrayList<>());
-        return shoppingCartRepository.save(shoppingCart).getProducts();
+        Cart cart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
+        cart.setProducts(new ArrayList<>());
+        return shoppingCartRepository.save(cart).getProducts();
     }
 
     @Override

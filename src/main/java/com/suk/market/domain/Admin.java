@@ -11,4 +11,5 @@ import javax.persistence.Entity;
 @Setter
 @AllArgsConstructor
 public class Admin extends User{
+
 }

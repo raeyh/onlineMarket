@@ -1,25 +1,21 @@
 package com.suk.market.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ShoppingCart {
+public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-    @OneToOne(cascade = CascadeType.MERGE)
-    private Buyer buyer;
-
-    @ManyToMany
+    private String categoryName;
+    @OneToMany(mappedBy = "category")
     private List<Product> products;
+
 }
