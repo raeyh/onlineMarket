@@ -2,7 +2,7 @@ package com.suk.market.controller;
 
 import com.suk.market.domain.*;
 import com.suk.market.dto.OrderDTO;
-import com.suk.market.service.BuyerService;
+import com.suk.market.service.buyer.BuyerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,6 +79,5 @@ public class BuyerController {
     public Reciept orderReciept(@RequestBody OrderDTO orderDTO, @PathVariable long id) {
         return buyerService.orderReciept(orderDTO, id);
     }
-
 
 }

@@ -1,4 +1,4 @@
-package com.suk.market.service;
+package com.suk.market.service.address;
 
 import com.suk.market.domain.Address;
 import com.suk.market.dto.AddressDTO;
@@ -11,5 +11,5 @@ public interface AddressService {
 
     Address updateAddress(AddressDTO addressDTO, Long id);
 
-    ;
+
 }

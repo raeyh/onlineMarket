@@ -1,7 +1,7 @@
 package com.suk.market.controller;
 
 import com.suk.market.domain.Order;
-import com.suk.market.service.OrderService;
+import com.suk.market.service.order.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

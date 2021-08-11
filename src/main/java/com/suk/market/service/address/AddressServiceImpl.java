@@ -1,13 +1,9 @@
-package com.suk.market.service.impl;
+package com.suk.market.service.address;
 
 import com.suk.market.domain.Address;
-import com.suk.market.domain.Buyer;
 import com.suk.market.dto.AddressDTO;
 import com.suk.market.repository.AddressRepository;
-import com.suk.market.service.AddressService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AddressServiceImpl implements AddressService {

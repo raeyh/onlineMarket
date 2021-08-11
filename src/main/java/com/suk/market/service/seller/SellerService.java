@@ -1,4 +1,4 @@
-package com.suk.market.service;
+package com.suk.market.service.seller;
 
 import com.suk.market.domain.Product;
 import com.suk.market.domain.Seller;

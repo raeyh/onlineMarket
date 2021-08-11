@@ -1,4 +1,4 @@
-package com.suk.market.service;
+package com.suk.market.service.buyer;
 
 import com.suk.market.domain.*;
 import com.suk.market.dto.OrderDTO;

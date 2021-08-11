@@ -1,9 +1,8 @@
-package com.suk.market.service.impl;
+package com.suk.market.service.buyer;
 
 import com.suk.market.domain.*;
 import com.suk.market.dto.OrderDTO;
 import com.suk.market.repository.*;
-import com.suk.market.service.BuyerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ public class BuyerServiceImpl implements BuyerService {
     @Autowired
     BuyerRepository buyerRepository;
     @Autowired
-    ShoppingCartRepository shoppingCartRepository;
+    CartRepository cartRepository;
     @Autowired
     OrderRepository orderRepository;
     @Autowired
@@ -44,7 +43,7 @@ public class BuyerServiceImpl implements BuyerService {
         Buyer buyer1 = buyerRepository.save(buyer);
         Cart cart = new Cart();
         cart.setBuyer(buyer1);
-        shoppingCartRepository.save(cart);
+        cartRepository.save(cart);
         return buyer1;
 
     }
@@ -88,24 +87,24 @@ public class BuyerServiceImpl implements BuyerService {
     @Override
     public List<Product> findOrCreateShoppingCart(long id) {
         Buyer buyer = findBuyerById(id);
-        Cart cart = shoppingCartRepository.findFirstByBuyer(buyer);
+        Cart cart = cartRepository.findFirstByBuyer(buyer);
         return cart.getProducts();
     }
 
     @Override
     public List<Product> addProductsToCart(List<Product> products, long id) {
         Buyer buyer = findBuyerById(id);
-        Cart cart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
+        Cart cart = cartRepository.findShoppingCartByBuyer(buyer);
         cart.setProducts(products);
-        return shoppingCartRepository.save(cart).getProducts();
+        return cartRepository.save(cart).getProducts();
     }
 
     @Override
     public List<Product> clearShoppingCart(long id) {
         Buyer buyer = findBuyerById(id);
-        Cart cart = shoppingCartRepository.findShoppingCartByBuyer(buyer);
+        Cart cart = cartRepository.findShoppingCartByBuyer(buyer);
         cart.setProducts(new ArrayList<>());
-        return shoppingCartRepository.save(cart).getProducts();
+        return cartRepository.save(cart).getProducts();
     }
 
     @Override

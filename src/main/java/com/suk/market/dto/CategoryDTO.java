@@ -9,10 +9,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductDTO {
-    private String productName;
-    private String productDescription;
-    private double price;
-    private byte[] image;
-
+public class CategoryDTO {
+    private String categoryName;
 }

@@ -1,9 +1,8 @@
-package com.suk.market.service.impl;
+package com.suk.market.service.order;
 
 import com.suk.market.domain.Order;
 import com.suk.market.domain.OrderStatus;
 import com.suk.market.repository.OrderRepository;
-import com.suk.market.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

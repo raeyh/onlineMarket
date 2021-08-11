@@ -1,11 +1,10 @@
-package com.suk.market.service.impl;
+package com.suk.market.service.seller;
 
 import com.suk.market.domain.Product;
 import com.suk.market.domain.Seller;
 import com.suk.market.repository.OrderRepository;
 import com.suk.market.repository.ProductRepository;
 import com.suk.market.repository.SellerRepository;
-import com.suk.market.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

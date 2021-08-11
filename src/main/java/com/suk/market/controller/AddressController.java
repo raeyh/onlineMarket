@@ -2,7 +2,7 @@ package com.suk.market.controller;
 
 import com.suk.market.domain.Address;
 import com.suk.market.dto.AddressDTO;
-import com.suk.market.service.AddressService;
+import com.suk.market.service.address.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
