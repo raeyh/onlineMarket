@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 
 public class Buyer extends User {
-    private double amount;
+    private Double amount;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Address> addresses;
